@@ -1,0 +1,28 @@
+// Mobile
+$mobile-portret-size: 320px
+$mobile-size: 480px
+
+// Tablet
+$tablet-size: 768px
+
+// Laptop
+$laptop-small-size: 1024px
+$laptop-middle-size: 1280px
+
+=mobile
+	// @media (min-width: #{$mobile-portret-size}) and (max-width: #{$mobile-size - 1px})
+	@media (min-width: #{$mobile-portret-size})
+		@content
+
+=mobile-landscape
+	// @media (min-width: #{$mobile-portret-size}) and (max-width: #{$mobile-size - 1px})
+	@media (min-width: #{$mobile-size})
+		@content
+
+=tablet
+	@media (min-width: #{$tablet-size})
+		@content
+
+=laptop-small
+	@media (min-width: #{$laptop-small-size})
+		@content

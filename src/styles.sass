@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'sass-config/variable'
+*,
+*:before,
+*:after
+    box-sizing: border-box
+
+ 
+html
+    background-position: 0 0
+    background-repeat: no-repeat
+    font-family: 'Circe','Open Sans', Helvetica,Arial,Times,serif
+    font-weight: normal
+    margin: 0
+    padding: 0
+    background-color: #fff
+
+body
+    min-width: $mobile-size
+    max-width: $laptop-middle-size
+    width: 100%
+    margin: 0 auto
+
+button
+    background-color: transparent
+    border: none
+    &:focus
+        // outline: 
+        outline: 1px solid transparent
+
+.hidden
+    display: none !important

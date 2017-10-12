@@ -1,0 +1,5 @@
+<div class="header">
+    <button class="header__button header__button_prev" [disabled]="currentPage === 'exchange-rate'" (click)="goToPrev()">&larr;</button>
+    <div class="header__date">{{date | date: 'dd MMMM, EEE'}}</div>
+    <button class="header__button header__button_next" [disabled]="currentPage === 'task-list'" (click)="goToNext()">&rarr;</button>
+</div>

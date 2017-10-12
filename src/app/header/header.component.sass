@@ -1,0 +1,21 @@
+.header
+    display: flex
+    justify-content: center
+    background-color: blue
+    color: white
+    text-align: center
+    height: 50px
+    &__button,
+    &__date
+
+    &__date
+        flex: 1 1 auto
+        align-self: center
+        text-transform: uppercase
+    &__button
+        flex: 0 0 50px
+        color: white
+        font-size: 1.4em
+        transition: color .25s ease
+        &:disabled
+            color: transparent
