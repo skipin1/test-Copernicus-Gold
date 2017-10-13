@@ -1,0 +1,64 @@
+.exchange
+    display: flex
+    flex-direction: column
+    // background-color: rgba(blue, .25)
+    padding: 25px
+    &__rate
+    &__history
+    &__description
+
+    .rate
+        text-align: center
+        &__title
+            margin-bottom: .5rem
+        &__value
+            font-size: 1.75em
+            // margin-bottom: 0.5rem
+        &__currency
+            display: flex
+            justify-content: center
+            font-size: 0.75em
+    .currency
+        &__source,
+        &__target
+
+        &__arrows
+            margin: 0 .25rem
+        
+    .history
+        text-align: center
+        padding: 0.5rem 0
+        margin-top: 1rem
+        &__title
+            text-align: left
+            margin-bottom: 0.5rem
+        &__item
+            margin: 0.5rem 0 1rem
+            // box-shadow: 0 0 1px 1px black
+            padding: 1rem .5rem
+            transition: background-color .5s ease-in-out
+
+    .description
+        margin-bottom: 0.5rem
+        $size: .85rem
+        &__item
+            display: flex
+            margin-bottom: $size
+            margin-bottom: 0.5rem
+        &__color            
+            // flex: 0 0 $size
+            flex-grow: 0
+            flex-shrink: 0
+            height: $size
+            width: $size
+            align-self: center
+
+        &__text
+            margin-left: 0.5rem
+    
+    .up
+        background-color: lighten(green, 20)
+    .down
+        background-color: lighten(red, 15)
+    .neutral
+        background-color: lighten(grey, 15)

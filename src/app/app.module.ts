@@ -8,6 +8,8 @@ import { AddTaskComponent } from './task/add-task/add-task.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedService } from './shared/shared.service';
 import { AppRoutingModule } from './app.routing';
+import { ExchangeRateService } from './exchange-rate/exchange-rate.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { AppRoutingModule } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [
-    SharedService
+    SharedService,
+    ExchangeRateService
   ],
   bootstrap: [AppComponent]
 })

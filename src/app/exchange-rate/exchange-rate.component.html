@@ -1,3 +1,47 @@
-<p>
-  exchange-rate works!
-</p>
+<div class="exchange">
+    <div class="exchange__rate rate" *ngIf="display; else loader">
+        <div class="rate__title">Exchange rate</div>
+        <div class="rate__value">{{rate}}</div>
+        <div class="rate__currency currency">
+            <div class="currency__source">{{sourceCode}}</div>
+            <div class="currency__arrows">&#8644;</div>
+            <div class="currency__target">{{targetCode}}</div>
+        </div>
+    </div>
+    <ng-template #loader>
+        <div class="exchange__rate rate">
+            <img src="assets/logo.png" alt="Copernicus Gold">
+        </div>
+    </ng-template>
+    <div class="exchange__history">
+        <div class="history" *ngIf="historyLog?.length > 0; else noHistoryLog">
+            <div class="history__title">History</div>
+            <div *ngFor="let historyItem of historyLog" [className]="'history__item ' + historyItem?.action">
+                <span *ngIf="historyItem.prev; else receivingData">
+                    <!-- {{historyItem?.current}} -->
+                    {{historyItem?.name}}
+                </span>
+                <ng-template #receivingData>{{historyItem?.name}} ( Data processing... )</ng-template>
+            </div>
+
+
+            <div class="exchange__description description">
+                <div class="description__item">
+                    <div class="description__color neutral"></div>
+                    <div class="description__text">&mdash; remained the same</div>
+                </div>
+                <div class="description__item">
+                    <div class="description__color down"></div>
+                    <div class="description__text">&mdash; drop</div>
+                </div>
+                <div class="description__item">
+                    <div class="description__color up"></div>
+                    <div class="description__text">&mdash; raise</div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noHistoryLog>
+            <div class="history">Receiving Data...</div>
+        </ng-template>
+    </div>
+</div>
