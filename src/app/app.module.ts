@@ -10,6 +10,9 @@ import { SharedService } from './shared/shared.service';
 import { AppRoutingModule } from './app.routing';
 import { ExchangeRateService } from './exchange-rate/exchange-rate.service';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ControlMessagesComponent } from './shared/control-message.component';
+import { ValidationService } from './shared/validation.service';
 
 
 @NgModule({
@@ -19,16 +22,19 @@ import { HttpModule } from '@angular/http';
     TaskListComponent,
     TaskComponent,
     HeaderComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    ControlMessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [
     SharedService,
-    ExchangeRateService
+    ExchangeRateService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })

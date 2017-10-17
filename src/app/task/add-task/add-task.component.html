@@ -1,3 +1,26 @@
-<p>
-  add-task works!
-</p>
+<form [formGroup]="taskForm" (ngSubmit)="addTask(taskForm.value, taskForm.valid)" novalidate class="add-task">
+    <div class="add-task__name" [class.error]="!taskForm.controls.name.valid && taskForm.controls.name.dirty">
+        <label for="name">What's new to do?</label>
+        <input type="text" id="name" class="add-task__name" formControlName="name">
+        <app-control-messages [control]="taskForm.controls.name"></app-control-messages>
+    </div>
+    <div class="add-task__description">
+        <label for="description">Details</label>
+        <textarea id="description" class="add-task__description" formControlName="description"></textarea>
+    </div>
+    <div class="add-task__time time">
+        <div class="time__title">Time</div>
+        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="1" />1 min ago</label>
+        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="2" />2 min ago</label>
+        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="3" />3 min ago</label>
+    </div>
+    <div class="add-task__exchange rate">
+        <div class="rate__title">Exchange rate</div>
+        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="up" />Raise</label>
+        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="down" />Drop</label>
+        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="neutral" />Same</label>
+    </div>
+    <div class="add-task__button">
+        <button type="submit" [disabled]="taskForm.pristine || !taskForm.valid">Add to your list</button>
+    </div>
+</form>
