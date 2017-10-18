@@ -113,14 +113,16 @@ export class AppComponent implements OnInit, OnDestroy {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     if (tasks.length > 0) {
       tasks.forEach(task => {
-        this.historyLog.forEach((historyItem, index) => {
-          if (task.time === index + 1) {
-            if (task.exchangeRate === historyItem.action) {
-              task.complete = true;
-              console.log('Change task status ', task.name);
+        if (!task.complete) {
+          this.historyLog.forEach((historyItem, index) => {
+            if (task.time === index + 1) {
+              if (task.exchangeRate === historyItem.action) {
+                task.complete = true;
+                // console.log('Change task status ', task.name);
+              }
             }
-          }
-        });
+          });
+        }
       });
       localStorage.setItem('tasks', JSON.stringify(tasks));
       this.sharedService.changeTask(tasks);
