@@ -10,8 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  private date: Date;
-  private currentPage: string;
+  public date: Date;
+  public currentPage: string;
   private prevPage: string;
   private nextPage: string;
   private subscribeCurrentPage: Subscription;
