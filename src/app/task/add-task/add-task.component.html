@@ -1,24 +1,26 @@
 <form [formGroup]="taskForm" (ngSubmit)="addTask(taskForm.value, taskForm.valid)" novalidate class="add-task">
+    <input type="hidden" name="complete" formControlName="complete" [value]="false">
     <div class="add-task__name" [class.error]="!taskForm.controls.name.valid && taskForm.controls.name.dirty">
         <label for="name">What's new to do?</label>
         <input type="text" id="name" class="add-task__name" formControlName="name">
         <app-control-messages [control]="taskForm.controls.name"></app-control-messages>
     </div>
-    <div class="add-task__description">
+    <div class="add-task__description" [class.error]="!taskForm.controls.description.valid && taskForm.controls.description.dirty">
         <label for="description">Details</label>
         <textarea id="description" class="add-task__description" formControlName="description"></textarea>
+        <app-control-messages [control]="taskForm.controls.description"></app-control-messages>
     </div>
     <div class="add-task__time time">
         <div class="time__title">Time</div>
-        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="1" />1 min ago</label>
-        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="2" />2 min ago</label>
-        <label class="time__item"><input type="radio" name="time" formControlName="time" [value]="3" />3 min ago</label>
+        <div class="time__item"><input type="radio" name="time" formControlName="time" [value]="1" id="time-1" /><label for="time-1">1 min ago</label></div>
+        <div class="time__item"><input type="radio" name="time" formControlName="time" [value]="2" id="time-2" /><label for="time-2">2 min ago</label></div>
+        <div class="time__item"><input type="radio" name="time" formControlName="time" [value]="3" id="time-3" /><label for="time-3">3 min ago</label></div>
     </div>
     <div class="add-task__exchange rate">
         <div class="rate__title">Exchange rate</div>
-        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="up" />Raise</label>
-        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="down" />Drop</label>
-        <label class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="neutral" />Same</label>
+        <div class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="up" id="exchangeRate-1" /><label for="exchangeRate-1">Raise</label></div>
+        <div class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="down" id="exchangeRate-2" /><label for="exchangeRate-2">Drop</label></div>
+        <div class="rate__item"><input type="radio" name="exchangeRate" formControlName="exchangeRate" value="neutral" id="exchangeRate-3" /><label for="exchangeRate-3">Same</label></div>
     </div>
     <div class="add-task__button">
         <button type="submit" [disabled]="taskForm.pristine || !taskForm.valid">Add to your list</button>

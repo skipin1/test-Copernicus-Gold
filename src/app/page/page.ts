@@ -14,7 +14,7 @@ export class Page implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: object) => {
-      console.log('route`s params is', data);
+      // console.log('route`s params is', data);
       this.page = data['page'];
     });
     this.sharedService.changeCurrentPage(this.page);

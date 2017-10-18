@@ -1,3 +1,6 @@
-<p>
-  task-list works!
-</p>
+<div class="task-list">
+    <ul *ngIf="tasks?.length > 0; else noTasks">
+        <app-task [task]="task" [index]="i" *ngFor="let task of tasks; trackBy: taskBy; let i = index"></app-task>
+    </ul>
+    <ng-template #noTasks><span class="task-list_empty">Task list is empty right now</span></ng-template>
+</div>

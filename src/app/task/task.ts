@@ -4,4 +4,5 @@ export interface Task {
     description: string;
     time: number;
     exchangeRate: string;
+    complete: boolean;
 }

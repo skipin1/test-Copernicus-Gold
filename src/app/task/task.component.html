@@ -1,3 +1,3 @@
-<p>
-  task works!
-</p>
+<li class="task" [class.completed]="task.complete">
+    <input type="radio" name="{{task.name}}" disabled [checked]="task.complete" id="task-{{index}}">
+    <label for="task-{{index}}">{{task.description}}</label></li>

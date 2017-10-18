@@ -34,19 +34,20 @@ export class AddTaskComponent extends Page implements OnInit {
         Validators.required,
         // Validators.minLength(4),
         ValidationService.inputValidator]],
-      'description': [null, []],
+      'description': [null, [Validators.required]],
       'time': [1, [Validators.required]],
-      'exchangeRate': ['up', [Validators.required]]
+      'exchangeRate': ['up', [Validators.required]],
+      'complete': [false]
     });
   }
 
   addTask(form: Task, valid: boolean): void {
     if (valid) {
-      console.log('add form is ', form);
+      // console.log('add form is ', form);
       let tasks: Task[];
       tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       tasks.push(form);
-      console.log('Our tasks is ', tasks);
+      // console.log('Our tasks is ', tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
       this.formReset();
     }

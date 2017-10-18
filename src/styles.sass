@@ -42,3 +42,42 @@ button
         padding: .5rem 0 0
         color: rgba(black, .5)
         font-size: 0.7em
+input[type=radio]
+    $border-size: 1.5rem
+    $dot-size: .8rem
+    // position: absolute
+    // // top: -9999px
+    // left: -9999px
+    margin: 0
+    &:checked,
+    &:not(:checked)
+        position: absolute
+        left: -9999px
+        & + label
+            padding-left: #{$border-size + .5rem}
+            line-height: $border-size
+            position: relative
+            &:before,
+            &:after
+                position: absolute
+                content: ''
+                border-radius: 100%
+                // transform: translate(-50%, -50%)
+            &:before
+                border: 2px solid blue
+                height: $border-size
+                width: $border-size
+                top: 0
+                left: 0
+            &:after
+                background-color: blue
+                top: #{($border-size - $dot-size) / 2}
+                left: #{($border-size - $dot-size) / 2}
+                height: $dot-size
+                width: $dot-size
+                opacity: 0
+                transition: opacity .5s ease
+    &:checked
+        & + label
+            &:after
+                opacity: 1
